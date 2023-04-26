@@ -3,8 +3,13 @@ let outerDiv = [];
 let size = 16;
 const myButton = document.getElementById("sizeButton");
 myButton.addEventListener("click", function() {
-  size = parseInt(prompt("Enter the desired size"))
+  let newSize = parseInt(prompt("Enter the desired size"))
 
+  if(newSize > 100){
+    size = 100
+  }else{
+    size = newSize
+  }
   while (board.firstChild) {
     board.removeChild(board.firstChild);
   }
@@ -24,9 +29,9 @@ myButton.addEventListener("click", function() {
               innerDiv[j].classList.add('black')
           })
   
-          innerDiv[j].addEventListener("mouseleave", () => {
-              innerDiv[j].classList.remove('black')
-          })
+        //   innerDiv[j].addEventListener("mouseleave", () => {
+        //       innerDiv[j].classList.remove('black')
+        //   })
       } 
       board.appendChild(outerDiv[i]);  
   }
